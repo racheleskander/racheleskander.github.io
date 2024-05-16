@@ -4,6 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hi, I'm Rachel</title>
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .gallery-item {
+            text-align: center;
+            width: 200px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+        .caption {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
     <h1>Hi, I'm Rachel</h1>
