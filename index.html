@@ -8,6 +8,7 @@
         body {
             font-family: Times New Roman;
         }
+         
         .gallery {
             display: flex;
             flex-wrap: wrap;
@@ -26,6 +27,12 @@
         .gallery-item img:hover {
             transform: scale(1.05);
         }
+         .container img {
+             width: 100%;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s;
+         }
         .caption {
             margin-top: 10px;
             font-size: 16px;
@@ -59,7 +66,7 @@ nav ul li a {
     text-decoration: none;
 }
 
-         #hero {
+ #hero {
     background: url('hero-bg.jpg') no-repeat center center/cover;
     height: 100vh;
     color: #fff;
@@ -107,8 +114,8 @@ nav ul li a {
              <h2>Projects</h2>
             <div class="project">
                 <h3>Nasgastric Tube Securement Device</h3>
-    <div class="gallery">
-        <div class="gallery-item">
+    <!--div class="gallery"-->
+        <!--div class="gallery-item"-->
             <a href="page1">
                 <img src="IMG_2949.JPG" alt="Image 1">
                 <div class="caption">Senior Design</div>
