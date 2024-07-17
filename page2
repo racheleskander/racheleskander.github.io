@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page1</title>
+</head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            padding: 10px;
+            width: 90%;
+            max-width: 1200px;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .caption {
+            position: absolute;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <body>
+    <h1>Enclosed Space Control</h1>
+          <p>I have completed two semesters of Senior Design at the University of Pittsburgh. My team was tasked with identifying a clinical unmet need through ethnographical research. We decided to address how we might mitigate the untimely removal of nasogastric (NG) tubes in pediatric patients aged 1-6 years old. After deciding on a problem to address, we went through the process of designing and developing a solution. We came up with the Nasogastric Tube Securement device, a headgear with a clip that protect the NG tube. After entering our design freeze, we started our verification and validation efforts. While conducting these tests, we worked on FDA regulatory documents and pre-submissions.</p>
+    <div class="gallery">
+        <div class="gallery-item">
+                <img src="IMG2" alt="Image 1">
+                <div class="caption">Sticky Note Session: Team Brainstorm Session</div>
+        </div>
+        <div class="gallery-item">
+                <img src="Rev1" alt="Image 2">
+                <div class="caption">Revision 1: Low resolution prototype. We used foamcore, felt, and elastic to create this revision</div>
+        </div>
+        <div class="gallery-item">
+                <img src="IMG_4137.jpeg" alt="Image 3">
+                <div class="caption">Revision 2: Clip Closed. This revision encloses the NG tube, while having a hinging mechanism to open, a clasp to secure the hinge, and sew holes to attach to the headgear. It was made with Polylactic Acid filament using a Fused Filament Fabrication method.</div>
+        </div>
+            <div class="gallery-item">
+                <img src="IMG_6041.jpeg" alt="Image 5">
+                <div class="caption">Full Revision 2</div>
+          </div>
+            <div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/username/repository/branch/images/image3.jpg" alt="Image 4">
+                <div class="caption">Image 3 Subtitle</div>
+        </div>
+</body>
+</html>
