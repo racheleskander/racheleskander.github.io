@@ -1,190 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
-     <style>
-        body {
-            font-family: Times New Roman;
-        }
-         
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            flex-direction: column;
-            align-items: center;
-        }
-        .gallery-item {
-            text-align: center;
-            width: 200px;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        .gallery-item img:hover {
-            transform: scale(1.05);
-        }
-      
-        .caption {
-            margin-top: 10px;
-            font-size: 16px;
-            color: #555;
-        }
-         nav {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rachel Eskander | Bioengineer</title>
+
+<style>
+/* -------- Global -------- */
+body {
+    font-family: "Times New Roman", serif;
+    margin: 0;
+    background: #fff;
+    color: #111;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* -------- Navigation -------- */
+nav {
+    border-bottom: 1px solid #eee;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
 }
 
 nav h1 {
-    display: inline;
+    font-size: 20px;
     margin: 0;
 }
 
 nav ul {
-    padding: 0;
     list-style: none;
-    display: inline;
-    float: right;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 10px;
-}
-
-nav ul li a {
-    color: #fff;
+nav a {
     text-decoration: none;
+    color: #111;
 }
 
- #hero {
-    background: url('hero-bg.jpg') no-repeat center center/cover;
-    height: 100vh;
-    color: #fff;
-    text-align: center;
-    padding-top: 20%;
+/* -------- Hero -------- */
+.hero h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
 }
 
-#about, #projects, #contact {
-    padding: 2rem 0;
-    clear: both;
+.hero p {
+    font-size: 18px;
+    color: #555;
 }
 
-#about h2, #projects h2, #contact h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-  
+/* -------- About -------- */
+#about h2,
+#projects h2,
+#contact h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
 }
+
 .about-content {
-   display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 800px; /* Limit the width of the content */
-            margin: 0 auto; /* Center the content */
-            text-align: justify;
-}
-
-.about-content img {
-    width: 200px; /* Adjust size as needed */
-    height: auto;
-    border-radius: 50%; /* Make it circular */
-    margin-left: 20px; /* Space between image and text */
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 60px;
+    align-items: center;
 }
 
 .about-content p {
-    flex: 1;
+    font-size: 17px;
+    line-height: 1.6;
 }
-.project {
-    width: 300px;
-    text-align: center;
+
+.headshot {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 50%;
+    justify-self: end;
 }
- .headshot {
-    width: 250px; /* Adjust size as needed */
-    height: auto;
-    margin-left: auto;
-    border-radius: 50%; /* Make it circular */
-     pading: 50px;
+
+/* -------- Projects -------- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 60px;
 }
-  .project h3 {
-    margin-top: 0;
-    justify-content: center;
-}       
-  .projects-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px; /* Space between projects */
-    justify-content: center;
+
+.project h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
 }
-    </style>
+
+.project img {
+    width: 100%;
+    display: block;
+}
+
+.project a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.caption {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* -------- Contact -------- */
+#contact p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+</style>
 </head>
+
 <body>
-                                                             <!-- Navigation Bar -->
-    <nav>    
-        <div class="container">
-            <h1>Bioengineer</h1>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+
+<!-- Navigation -->
+<nav>
+    <div class="container">
+        <h1>Bioengineer</h1>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <h2>Hi, I’m Rachel.</h2>
+        <p>Bioengineer with a passion for medical device development.</p>
+    </div>
+</section>
+
+<!-- About -->
+<section id="about">
+    <div class="container">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <p>
+                I am an Associate Regulatory Affairs Specialist at Medtronic Cardiac Surgery.
+                I graduated from the University of Pittsburgh with a B.S. in Bioengineering
+                with a concentration in Medical Product Design and a Certificate in Innovation,
+                Product Design, and Entrepreneurship. My goal is to grow as a bioengineer
+                in the cardiovascular medical device industry.
+            </p>
+            <img src="headshot2_fall23.jpg" alt="Rachel Eskander" class="headshot">
         </div>
-    </nav>
-    <h1>Hi, I'm Rachel.</h1>
-    <p>Welcome to my portfolio. </p>
-                                                              <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <p> I am an Associate Regulatory Affairs Specialist at Medtronic Cardiac Surgery. I graduated from the University of Pittsburgh with a B.S. in Bioengineering with a concentration in Medical Product Design and Certificate in Innovation, Product Design, and Entrepreneurship. I spent my college career exploring different fields within bioengineering and discovered my passion for medical device development. My goal is to grow in experience and expertise as a bioengineer, which will help me further develop my skills to make a different in the cardiovascular medical device industry. </p>
-             <img src="headshot2_fall23.jpg" align="right" alt="My Headshot" class="headshot">
-        </div>
-                                                       <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                <div class="project">
-                                   <!-- senior design -->
-                    <h3>Nasgastric Tube Securement Device</h3>
-                    <div class="gallery">
-                        <div class="gallery-item">
-                            <a href="page1">
-                                <img src="IMG_2949.JPG" alt="Image 1">
-                                <div class="caption">Senior Design</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project">
-                                     <!-- enclosed space -->
-                    <h3>Enclosed Space Control</h3>
-                    <div class="gallery">
-                        <div class="gallery-item">
-                            <a href="page2">
-                                <img src="finalProduct.png" alt="PRODUCT">
-                                <div class="caption">Product Realization</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+    </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+    <div class="container">
+        <h2>Projects</h2>
+
+        <div class="projects-grid">
+
+            <div class="project">
+                <h3>Nasogastric Tube Securement Device</h3>
+                <a href="page1">
+                    <img src="IMG_2949.JPG" alt="NG Tube Securement">
+                    <div class="caption">Senior Design</div>
+                </a>
             </div>
+
+            <div class="project">
+                <h3>Enclosed Space Control</h3>
+                <a href="page2">
+                    <img src="finalProduct.png" alt="Enclosed Space Control">
+                    <div class="caption">Product Realization</div>
+                </a>
+            </div>
+
         </div>
-    </section>
-        
-                                                             <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Contact</h2>
-            <p>Email: racheleskander@gmail.com</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/rachel-eskander/">Your LinkedIn Profile</a></p>
-        </div>
-    </section>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <div class="container">
+        <h2>Contact</h2>
+        <p>Email: racheleskander@gmail.com</p>
+        <p>
+            LinkedIn:
+            <a href="https://www.linkedin.com/in/rachel-eskander/">
+                linkedin.com/in/rachel-eskander
+            </a>
+        </p>
+    </div>
+</section>
+
 </body>
 </html>
