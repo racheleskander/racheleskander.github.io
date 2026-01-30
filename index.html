@@ -95,14 +95,21 @@ nav a {
     gap: 60px;
 }
 
-.project h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
+.project {
+    text-align: center; /* Centers the title and caption */
 }
 
 .project img {
     width: 100%;
+    height: 250px;      /* Set a fixed height for all images */
+    object-fit: cover;  /* This crops the image to fill the box without stretching */
     display: block;
+    margin-bottom: 15px;
+}
+
+.project h3 {
+    font-size: 20px;
+    margin: 10px 0 5px 0;
 }
 
 .project a {
@@ -111,7 +118,6 @@ nav a {
 }
 
 .caption {
-    margin-top: 10px;
     font-size: 14px;
     color: #555;
 }
@@ -126,7 +132,6 @@ nav a {
 
 <body>
 
-<!-- Navigation -->
 <nav>
     <div class="container">
         <h1>Bioengineer</h1>
@@ -138,7 +143,6 @@ nav a {
     </div>
 </nav>
 
-<!-- Hero -->
 <section class="hero">
     <div class="container">
         <h2>Hi, I’m Rachel.</h2>
@@ -146,7 +150,6 @@ nav a {
     </div>
 </section>
 
-<!-- About -->
 <section id="about">
     <div class="container">
         <h2>About Me</h2>
@@ -163,7 +166,6 @@ nav a {
     </div>
 </section>
 
-<!-- Projects -->
 <section id="projects">
     <div class="container">
         <h2>Projects</h2>
@@ -171,17 +173,17 @@ nav a {
         <div class="projects-grid">
 
             <div class="project">
-                <h3>Nasogastric Tube Securement Device</h3>
                 <a href="page1">
                     <img src="IMG_2949.JPG" alt="NG Tube Securement">
+                    <h3>Nasogastric Tube Securement Device</h3>
                     <div class="caption">Senior Design</div>
                 </a>
             </div>
 
             <div class="project">
-                <h3>Enclosed Space Control</h3>
                 <a href="page2">
                     <img src="finalProduct.png" alt="Enclosed Space Control">
+                    <h3>Enclosed Space Control</h3>
                     <div class="caption">Product Realization</div>
                 </a>
             </div>
@@ -190,7 +192,6 @@ nav a {
     </div>
 </section>
 
-<!-- Contact -->
 <section id="contact">
     <div class="container">
         <h2>Contact</h2>
