@@ -89,22 +89,26 @@ nav a {
 }
 
 /* -------- Projects -------- */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 60px;
-}
+
 
 .project {
     text-align: center; /* Centers the title and caption */
 }
 
+.projects-grid {
+    display: grid;
+    /* Changed minmax to 250px to allow 3 items to fit in a row better */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 40px; /* Reduced gap slightly to keep things tight */
+}
+
 .project img {
     width: 100%;
-    height: 500px;      /* Set a fixed height for all images */
-    object-fit: cover;  /* This crops the image to fill the box without stretching */
+    height: 200px; /* Reduced height from 250px to make them smaller/sleeker */
+    object-fit: cover;
     display: block;
     margin-bottom: 15px;
+    border: 1px solid #eee; /* Adds a thin border to define the edges */
 }
 
 .project h3 {
