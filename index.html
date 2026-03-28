@@ -8,10 +8,11 @@
 <style>
 /* -------- Global -------- */
 body {
-    font-family: "Lucida Grande", serif;
+    font-family: "Lucida Grande", sans-serif;
     margin: 0;
     background: #fff;
     color: #111;
+    line-height: 1.6;
 }
 
 .container {
@@ -32,11 +33,6 @@ nav .container {
     padding: 30px 20px;
 }
 
-nav h1 {
-    font-size: 20px;
-    margin: 0;
-}
-
 nav ul {
     list-style: none;
     display: flex;
@@ -48,73 +44,72 @@ nav ul {
 nav a {
     text-decoration: none;
     color: #111;
+    font-weight: bold;
 }
 
-/* -------- Hero -------- */
+/* -------- Hero Section (Headshot on Right) -------- */
+.hero-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
 .hero h2 {
-    font-size: 36px;
+    font-size: 42px;
     margin-bottom: 10px;
 }
 
 .hero p {
-    font-size: 18px;
+    font-size: 20px;
     color: #555;
-}
-
-/* -------- About -------- */
-#about h2,
-#projects h2,
-#contact h2 {
-    font-size: 28px;
-    margin-bottom: 40px;
-}
-
-.about-content {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.about-content p {
-    font-size: 17px;
-    line-height: 1.6;
 }
 
 .headshot {
     width: 100%;
-    max-width: 320px;
-    border-radius: 0;
-    justify-self: end;
+    max-width: 300px;
+    border-radius: 10px; /* Optional: slightly rounded for a modern look */
+    object-fit: cover;
 }
 
-/* -------- Projects -------- */
-
-
-.project {
-    text-align: center; /* Centers the title and caption */
+/* -------- About Section -------- */
+#about, #projects, #contact {
+    border-top: 1px solid #f4f4f4;
 }
 
+#about h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    max-width: 800px; /* Keeps text from getting too wide/hard to read */
+}
+
+/* -------- Projects Grid -------- */
 .projects-grid {
     display: grid;
-    /* Changed minmax to 250px to allow 3 items to fit in a row better */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-    gap: 40px; /* Reduced gap slightly to keep things tight */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 40px;
+}
+
+.project {
+    text-align: center;
 }
 
 .project img {
-    width: 50%;
-    height: 200px; /* Reduced height from 250px to make them smaller/sleeker */
+    width: 80%; /* Adjusted size */
+    height: 220px; 
     object-fit: cover;
     display: block;
     margin: 0 auto 15px auto;
-   /* margin-bottom: 15px;*/
-    border: 1px solid #eee; /* Adds a thin border to define the edges */
-}
-
-.project h3 {
-    font-size: 20px;
-    margin: 10px 0 5px 0;
+    border: 1px solid #eee;
 }
 
 .project a {
@@ -124,13 +119,16 @@ nav a {
 
 .caption {
     font-size: 14px;
-    color: #555;
+    color: #777;
+    margin-top: 5px;
 }
 
-/* -------- Contact -------- */
-#contact p {
-    font-size: 16px;
-    margin: 10px 0;
+/* -------- Responsive -------- */
+@media (max-width: 768px) {
+    .hero-flex {
+        flex-direction: column;
+        text-align: center;
+    }
 }
 </style>
 </head>
@@ -149,11 +147,12 @@ nav a {
 </nav>
 
 <section class="hero">
-    <div class="container">
-        
-        <h2>Hi, I’m Rachel.</h2>
-        <p> I am a bioengineer with a passion for product design and development. Welcome to my site! </p>
-          <img src="headshot2_fall23.jpg" alt="Rachel Eskander" class="headshot">
+    <div class="container hero-flex">
+        <div class="hero-text">
+            <h2>Hi, I’m Rachel.</h2>
+            <p>I am a bioengineer with a passion for product design and development. Welcome to my site!</p>
+        </div>
+        <img src="headshot2_fall23.jpg" alt="Rachel Eskander" class="headshot">
     </div>
 </section>
 
@@ -165,15 +164,14 @@ nav a {
                 I am an Associate Regulatory Affairs Specialist at Medtronic Cardiac Surgery.
                 I graduated from the University of Pittsburgh with a B.S. in Bioengineering
                 with a concentration in Medical Product Design and a Certificate in Innovation,
-                Product Design, and Entrepreneurship.! </p>
- 
-               </p>  
-            I like challenges and engineering is my outlet to find creative solutions to everyday problems.
-            Whether I’m iterating in CAD, troubleshooting a 3D print, or getting a little dusty with CNC 
-            machining, I thrive in the messy, creative gap between a napkin sketch and a physical prototype. 
-            I don't just like trying new things, I like mastering the tools that build them. Call me a jack of all masters!
+                Product Design, and Entrepreneurship.
             </p>
-         
+            <p>
+                I like challenges and engineering is my outlet to find creative solutions to everyday problems.
+                Whether I’m iterating in CAD, troubleshooting a 3D print, or getting a little dusty with CNC 
+                machining, I thrive in the messy, creative gap between a napkin sketch and a physical prototype. 
+                I don't just like trying new things, I like mastering the tools that build them. Call me a jack of all masters!
+            </p>
         </div>
     </div>
 </section>
@@ -181,25 +179,21 @@ nav a {
 <section id="projects">
     <div class="container">
         <h2>Projects</h2>
-
         <div class="projects-grid">
-
             <div class="project">
                 <a href="page1">
-                   <h3>Nasogastric Tube Securement Device</h3>
                     <img src="IMG_2949.JPG" alt="NG Tube Securement">
+                    <h3>Nasogastric Tube Securement Device</h3>
                     <div class="caption">Senior Design</div>
                 </a>
             </div>
-
             <div class="project">
                 <a href="page2">
-                    <h3>Enclosed Space Control</h3>
                     <img src="finalProduct.png" alt="Enclosed Space Control">
+                    <h3>Enclosed Space Control</h3>
                     <div class="caption">Product Realization</div>
                 </a>
             </div>
-
         </div>
     </div>
 </section>
@@ -208,12 +202,7 @@ nav a {
     <div class="container">
         <h2>Contact</h2>
         <p>Email: racheleskander@gmail.com</p>
-        <p>
-            LinkedIn:
-            <a href="https://www.linkedin.com/in/rachel-eskander/">
-                linkedin.com/in/rachel-eskander
-            </a>
-        </p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/rachel-eskander/">linkedin.com/in/rachel-eskander</a></p>
     </div>
 </section>
 
