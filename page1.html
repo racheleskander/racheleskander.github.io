@@ -103,16 +103,18 @@
 
         .visual-item {
             display: grid;
-            grid-template-columns: 1.4fr 0.6fr;
-            /* Makes the image column physically smaller */
+            grid-template-columns: 1.5fr 1fr;
             gap: 20px;
-            /* Brings the text and image right next to each other */
             align-items: start;
         }
 
+        /* Alternate every other image to the right */
         .visual-item:nth-child(even) {
-            grid-template-columns: 0.6fr 1.4fr;
-            /* Mirror it perfectly for the alternating items */
+            grid-template-columns: 1fr 1.5fr;
+        }
+
+        .visual-item:nth-child(even) .visual-img-wrapper {
+            order: 2;
         }
 
         .visual-img-wrapper {
@@ -120,8 +122,11 @@
             padding: 20px;
             border-radius: 4px;
             overflow: hidden;
-            /* width: 50%; <- Removed so it cleanly fills its tight grid column */
+
+            /* Move the 50% sizing to the wrapper itself */
+            width: 50%;
             box-sizing: border-box;
+            /* Ensures padding is included in the 50% width */
         }
 
         .visual-img-wrapper img {
