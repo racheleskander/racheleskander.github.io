@@ -12,7 +12,8 @@
             --accent-color: #007AFF;
             /* Subtle medical blue */
             --bg-color: #ffffff;
-            --section-gap: 80px;
+            --section-gap: 50px;
+            /* Reduced gap to bring sections closer */
         }
 
         body {
@@ -21,12 +22,12 @@
             padding: 0;
             background-color: var(--bg-color);
             color: var(--primary-color);
-            line-height: 1.8;
+            line-height: 1.6;
         }
 
         /* -------- Navigation -------- */
         .nav-back {
-            padding: 40px 0;
+            padding: 30px 0 20px 0;
             max-width: 900px;
             margin: 0 auto;
             width: 90%;
@@ -53,19 +54,19 @@
         }
 
         h1 {
-            font-size: clamp(32px, 5vw, 48px);
+            font-size: clamp(28px, 4vw, 40px);
             font-weight: 700;
             letter-spacing: -1px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             line-height: 1.2;
         }
 
         .project-meta {
             display: flex;
             gap: 40px;
-            margin-top: 30px;
+            margin-top: 20px;
             border-top: 1px solid #eee;
-            padding-top: 20px;
+            padding-top: 15px;
             color: var(--secondary-color);
             font-size: 14px;
         }
@@ -75,42 +76,48 @@
             color: var(--primary-color);
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
         }
 
         /* -------- Content Layout -------- */
         .content-block {
             max-width: 900px;
             margin: 0 auto var(--section-gap) auto;
-            width: 50%;
+            width: 90%;
         }
 
         .description {
-            font-size: 19px;
+            font-size: 18px;
             color: #333;
+            margin: 0;
         }
 
-        /* -------- Sleek Gallery -------- */
+        /* -------- Compact Sleek Gallery -------- */
         .case-study-visuals {
-            max-width: 1100px;
+            max-width: 850px;
+            /* Narrowed container to keep everything more compact */
             margin: 0 auto;
-            width: 95%;
+            width: 90%;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            padding-bottom: 100px;
+            gap: 30px;
+            /* Reduced gap between rows so more content fits vertically */
+            padding-bottom: 60px;
         }
 
         .visual-item {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 20px;
-            align-items: start;
+            grid-template-columns: 280px 1fr;
+            /* Fixed compact image width + flexible text column */
+            gap: 24px;
+            /* Clean, close spacing between image and text */
+            align-items: center;
+            /* Vertically aligns text with the center of the image */
         }
 
         /* Alternate every other image to the right */
         .visual-item:nth-child(even) {
-            grid-template-columns: 1fr 1.5fr;
+            grid-template-columns: 1fr 280px;
         }
 
         .visual-item:nth-child(even) .visual-img-wrapper {
@@ -119,57 +126,62 @@
 
         .visual-img-wrapper {
             background: #f9f9f9;
-            padding: 20px;
-            border-radius: 4px;
+            padding: 12px;
+            border-radius: 6px;
             overflow: hidden;
-
-            /* Move the 50% sizing to the wrapper itself */
-            width: 50%;
             box-sizing: border-box;
-            /* Ensures padding is included in the 50% width */
+            width: 100%;
+            /* Fills the 280px grid column cleanly */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .visual-img-wrapper img {
-            /* Make the image fill 100% of its new 50% wrapper */
             width: 100%;
-            height: auto;
+            height: 180px;
+            /* Standardized height to prevent oversized images */
+            object-fit: cover;
+            /* Ensures crisp cropping without squishing aspect ratios */
             display: block;
+            border-radius: 2px;
             transition: transform 0.5s ease;
         }
 
         .visual-img-wrapper:hover img {
-            transform: scale(1.02);
-        }
-
-        .visual-info {
-            padding-top: 20px;
+            transform: scale(1.03);
         }
 
         .visual-info h3 {
-            font-size: 14px;
+            font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             color: var(--accent-color);
-            margin-bottom: 10px;
+            margin: 0 0 6px 0;
         }
 
         .visual-info p {
-            font-size: 16px;
+            font-size: 15px;
             color: var(--secondary-color);
             margin: 0;
+            line-height: 1.5;
         }
 
         /* -------- Responsive -------- */
-        @media (max-width: 850px) {
+        @media (max-width: 750px) {
 
             .visual-item,
             .visual-item:nth-child(even) {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 15px;
             }
 
             .visual-item:nth-child(even) .visual-img-wrapper {
                 order: 0;
+            }
+
+            .visual-img-wrapper img {
+                height: 220px;
             }
         }
     </style>
