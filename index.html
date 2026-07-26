@@ -4,214 +4,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enclosed Space Control | Rachel Eskander</title>
-    <style>
-        :root {
-            --primary-color: #111;
-            --secondary-color: #666;
-            --accent-color: #007AFF;
-            /* Subtle medical blue */
-            --bg-color: #ffffff;
-            --section-gap: 50px;
-            /* Reduced gap to bring sections closer */
-        }
+    <title>Rachel Eskander</title>
 
+    <style>
+        /* -------- Global -------- */
         body {
-            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: "Lucida Grande", sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--primary-color);
+            background: #fff;
+            color: #111;
             line-height: 1.6;
         }
 
-        /* -------- Navigation -------- */
-        .nav-back {
-            padding: 30px 0 20px 0;
-            max-width: 900px;
+        .container {
+            max-width: 1100px;
             margin: 0 auto;
-            width: 90%;
+            padding: 60px 20px;
         }
 
-        .nav-back a {
-            text-decoration: none;
-            color: var(--secondary-color);
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s;
+        /* -------- Navigation -------- */
+        nav {
+            border-bottom: 1px solid #eee;
         }
 
-        .nav-back a:hover {
-            color: var(--primary-color);
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 20px;
         }
 
-        /* -------- Header Area (Updated Layout) -------- */
-        .project-header {
-            max-width: 900px;
-            margin: 0 auto var(--section-gap) auto;
-            width: 90%;
+        nav ul {
+            list-style: none;
             display: flex;
             gap: 30px;
-            align-items: flex-start;
-            justify-content: space-between;
+            margin: 0;
+            padding: 0;
         }
 
-        .header-content {
+        nav a {
+            text-decoration: none;
+            color: #111;
+            font-weight: bold;
+        }
+
+        /* -------- Hero Section (Headshot on Right) -------- */
+        .hero-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
             flex: 1;
         }
 
-        /* Hero Image Container on Top-Right */
-        .header-hero-img {
-            width: 220px;
-            flex-shrink: 0;
-            background: #f9f9f9;
-            padding: 8px;
-            border-radius: 6px;
-            box-sizing: border-box;
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 10px;
         }
 
-        .header-hero-img img {
+        .hero p {
+            font-size: 20px;
+            color: #555;
+        }
+
+        .headshot {
             width: 100%;
-            height: 160px;
+            max-width: 300px;
+            border-radius: 10px;
+            /* Optional: slightly rounded for a modern look */
             object-fit: cover;
-            border-radius: 4px;
-            display: block;
         }
 
-        h1 {
-            font-size: clamp(28px, 4vw, 40px);
-            font-weight: 700;
-            letter-spacing: -1px;
-            margin: 0 0 15px 0;
-            line-height: 1.2;
+        /* -------- About Section -------- */
+        #about,
+        #projects,
+        #contact {
+            border-top: 1px solid #f4f4f4;
         }
 
-        .project-meta {
-            display: flex;
-            gap: 30px;
-            margin-top: 20px;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
-            color: var(--secondary-color);
-            font-size: 14px;
-            flex-wrap: wrap;
+        #about h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
         }
 
-        .meta-item strong {
-            display: block;
-            color: var(--primary-color);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 3px;
-        }
-
-        /* -------- Content Layout -------- */
-        .content-block {
-            max-width: 900px;
-            margin: 0 auto var(--section-gap) auto;
-            width: 90%;
-        }
-
-        .description {
+        .about-content p {
             font-size: 18px;
-            color: #333;
-            margin: 0;
+            margin-bottom: 20px;
+            max-width: 800px;
+            /* Keeps text from getting too wide/hard to read */
         }
 
-        /* -------- Compact Sleek Gallery -------- */
-        .case-study-visuals {
-            max-width: 850px;
-            margin: 0 auto;
-            width: 90%;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            padding-bottom: 60px;
-        }
-
-        .visual-item {
+        /* -------- Projects Grid -------- */
+        .projects-grid {
             display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 24px;
-            align-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
 
-        /* Alternate every other image to the right */
-        .visual-item:nth-child(even) {
-            grid-template-columns: 1fr 280px;
+        .project {
+            text-align: center;
         }
 
-        .visual-item:nth-child(even) .visual-img-wrapper {
-            order: 2;
-        }
-
-        .visual-img-wrapper {
-            background: #f9f9f9;
-            padding: 12px;
-            border-radius: 6px;
-            overflow: hidden;
-            box-sizing: border-box;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .visual-img-wrapper img {
-            width: 100%;
-            height: 180px;
+        .project img {
+            width: 50%;
+            /* Adjusted size */
+            height: 200px;
             object-fit: cover;
             display: block;
-            border-radius: 2px;
-            transition: transform 0.5s ease;
+            margin: 0 auto 15px auto;
+            border: 1px solid #eee;
         }
 
-        .visual-img-wrapper:hover img {
-            transform: scale(1.03);
+        .project a {
+            text-decoration: none;
+            color: inherit;
         }
 
-        .visual-info h3 {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--accent-color);
-            margin: 0 0 6px 0;
-        }
-
-        .visual-info p {
-            font-size: 15px;
-            color: var(--secondary-color);
-            margin: 0;
-            line-height: 1.5;
+        .caption {
+            font-size: 14px;
+            color: #777;
+            margin-top: 5px;
         }
 
         /* -------- Responsive -------- */
-        @media (max-width: 750px) {
-            .project-header {
-                flex-direction: column-reverse;
-            }
-
-            .header-hero-img {
-                width: 100%;
-            }
-
-            .header-hero-img img {
-                height: 200px;
-            }
-
-            .visual-item,
-            .visual-item:nth-child(even) {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .visual-item:nth-child(even) .visual-img-wrapper {
-                order: 0;
-            }
-
-            .visual-img-wrapper img {
-                height: 220px;
+        @media (max-width: 768px) {
+            .hero-flex {
+                flex-direction: column;
+                text-align: center;
             }
         }
     </style>
@@ -219,104 +141,77 @@
 
 <body>
 
-    <div class="nav-back">
-        <a href="index.html">← Back to Projects</a>
-    </div>
+    <nav>
+        <div class="container">
+            <h1>Bioengineer</h1>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <header class="project-header">
-        <div class="header-content">
-            <h1>Enclosed Space Control</h1>
-            <div class="project-meta">
-                <div class="meta-item">
-                    <strong>Role</strong>
-                    Design Testing Lead
+    <section class="hero">
+        <div class="container hero-flex">
+            <div class="hero-text">
+                <h2>Hi, I’m Rachel.</h2>
+                <p>I am a bioengineer with a passion for product design and development. Welcome to my site!</p>
+            </div>
+            <img src="headshot2_fall23.jpg" alt="Rachel Eskander" class="headshot">
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>
+                    I am an Associate Regulatory Affairs Specialist at Medtronic Cardiac Surgery.
+                    I graduated from the University of Pittsburgh with a B.S. in Bioengineering
+                    with a concentration in Medical Product Design and a Certificate in Innovation,
+                    Product Design, and Entrepreneurship.
+                </p>
+                <p>
+                    I like challenges and engineering is my outlet to find creative solutions to everyday problems.
+                    Whether I’m iterating in CAD, troubleshooting a 3D print, or getting a little dusty with CNC
+                    machining, I thrive in the messy, creative gap between a napkin sketch and a physical prototype.
+                    I don't just like trying new things, I like mastering the tools that build them. Call me a jack of
+                    all masters!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project">
+                    <a href="page1">
+                        <img src="IMG_2949.JPG" alt="NG Tube Securement">
+                        <h3>Nasogastric Tube Securement Device</h3>
+                        <div class="caption">Senior Design</div>
+                    </a>
                 </div>
-                <div class="meta-item">
-                    <strong>Timeline</strong>
-                    Product Realization (5 months)
-                </div>
-                <div class="meta-item">
-                    <strong>Context</strong>
-                    University of Pittsburgh
+                <div class="project">
+                    <a href="page2">
+                        <img src="finalProduct.png" alt="Enclosed Space Control">
+                        <h3>Enclosed Space Control</h3>
+                        <div class="caption">Product Realization</div>
+                    </a>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Top Right Product Image -->
-        <div class="header-hero-img">
-            <img src="IMG_2949.JPG" alt="Final Enclosed Space Control Prototype">
+    <section id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <p>Email: racheleskander@gmail.com</p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/rachel-eskander/">linkedin.com/in/rachel-eskander</a></p>
         </div>
-    </header>
-
-    <main>
-        <section class="content-block">
-            <p class="description">
-                The objective of the project was to create a secure and controlled environment for medication storage by
-                developing an enclosed safe space equipped with advanced sensors. The implementation involves
-                integrating a human presence and motion sensor and an accelerometer sensor within a compact box, which
-                is strategically placed inside a medicine cabinet. The primary goal is to detect and prevent
-                unauthorized access, particularly by children, to the medication. This innovative solution aims to
-                enhance safety in environments like patient homes, doctor offices, and pharmacies, mitigating the risk
-                of accidental ingestion or misuse of drugs by implementing proactive measures through sensor technology.
-            </p>
-        </section>
-
-        <section class="case-study-visuals">
-
-            <div class="visual-item">
-                <div class="visual-img-wrapper">
-                    <img src="patent.png" alt="Patent Distribution">
-                </div>
-                <div class="visual-info">
-                    <h3>Patent Distribution</h3>
-                    <p>We received a patent to begin our project efforts.</p>
-                </div>
-            </div>
-
-            <div class="visual-item">
-                <div class="visual-img-wrapper">
-                    <img src="rev1sketch.png" alt="Revision 01 Sketch">
-                </div>
-                <div class="visual-info">
-                    <h3>Revision 01</h3>
-                    <p>Initial prototype sketch with 2 sensors, a transceiver and receiver. Customer feedback determined
-                        that it was unfavorable to have a separate receiving component.</p>
-                </div>
-            </div>
-
-            <div class="visual-item">
-                <div class="visual-img-wrapper">
-                    <img src="finalsensor.png" alt="Electronics Layout">
-                </div>
-                <div class="visual-info">
-                    <h3>A Look Inside</h3>
-                    <p>Electronic components used in final prototype.</p>
-                </div>
-            </div>
-
-            <div class="visual-item">
-                <div class="visual-img-wrapper">
-                    <img src="sensortesting.jpeg" alt="Testing Setup">
-                </div>
-                <div class="visual-info">
-                    <h3>Verification testing setup</h3>
-                    <p>I led the testing protocols and participated in design fabrication and review for the product.
-                    </p>
-                </div>
-            </div>
-
-            <div class="visual-item">
-                <div class="visual-img-wrapper">
-                    <img src="testing.jpeg" alt="Sensor Verification">
-                </div>
-                <div class="visual-info">
-                    <h3>Testing</h3>
-                    <p>Human Presence Sensor Verification Testing</p>
-                </div>
-            </div>
-
-        </section>
-    </main>
+    </section>
 
 </body>
 
