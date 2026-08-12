@@ -1,0 +1,134 @@
+<span class="period">· 2012–2016</span>
+</div>
+<p class="role">Product Designer</p>
+</div>
+<svg class="experience-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M7 17L17 7M17 7H7M17 7V17" />
+</svg>
+</a>
+</div>
+</div>
+</section>
+
+<section class="education" id="education">
+    <div class="container">
+        <div class="content-narrow">
+            <h3 class="section-title reveal">Education</h3>
+            <p class="reveal">Rhode Island School of Design<br />BFA in Graphic Design, 2012</p>
+        </div>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <div class="container">
+        <div class="content-narrow">
+            <h3 class="section-title reveal">About</h3>
+            <p class="reveal">I'm a product designer and creative director based in San Francisco. I believe in design
+                as a tool for clarity — simplifying complexity, building trust, and making technology feel human.</p>
+            <p class="reveal">Over the past decade, I've worked with startups and scale-ups to define product vision,
+                ship design systems, and lead teams through ambiguity. My work sits at the intersection of systems
+                thinking and craft.</p>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="content-narrow">
+            <h3 class="section-title reveal">Contact</h3>
+            <div class="contact-grid">
+                <div class="contact-links reveal">
+                    <a href="mailto:hello@mayachen.design">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                            <polyline points="22,6 12,13 2,6" />
+                        </svg>
+                        hello@mayachen.design
+                    </a>
+                    <a href="https://linkedin.com/in/mayachen" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                            <rect x="2" y="9" width="4" height="12" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg>
+                        LinkedIn
+                        <svg class="contact-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                    </a>
+                    <a href="https://dribbble.com/mayachen" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72" />
+                            <path d="M2.36 12.36c8.25-1.35 12.38-1.35 19.28.00" style="display:none" />
+                            <path d="M3.2 9.5c8.83 1.55 13.28 1.55 17.6.00" style="display:none" />
+                            <path d="M12.6 2.04c-1.55 6.6-1.55 10.34 0 16.02" style="display:none" />
+                        </svg>
+                        Dribbble
+                        <svg class="contact-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="contact-location reveal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <div>
+                        <span>San Francisco, USA 🇺🇸</span>
+                        <p style="color:var(--fg-50); font-size:0.95rem; margin-top:4px;" id="local-time"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <p>© <span id="year"></span> Maya Chen. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    // Intersection Observer reveal animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    // Local time in San Francisco
+    function updateTime() {
+        const timeEl = document.getElementById('local-time');
+        if (!timeEl) return;
+        const time = new Date().toLocaleTimeString('en-US', {
+            timeZone: 'America/Los_Angeles',
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true,
+        });
+        timeEl.textContent = time + ' local time';
+    }
+    updateTime();
+    setInterval(updateTime, 60000);
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+
+</html>
