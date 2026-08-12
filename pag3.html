@@ -1,133 +1,730 @@
-<span class="period">· 2012–2016</span>
-</div>
-<p class="role">Product Designer</p>
-</div>
-<svg class="experience-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path d="M7 17L17 7M17 7H7M17 7V17" />
-</svg>
-</a>
-</div>
-</div>
-</section>
+<!DOCTYPE html>
+<html lang="en">
 
-<section class="education" id="education">
-    <div class="container">
-        <div class="content-narrow">
-            <h3 class="section-title reveal">Education</h3>
-            <p class="reveal">Rhode Island School of Design<br />BFA in Graphic Design, 2012</p>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maya Chen — Product Design & Creative Direction</title>
+    <meta name="description" content="Portfolio of Maya Chen, Product Designer & Creative Director." />
+    <style>
+        :root {
+            --bg: #0f172a;
+            --fg: #f8fafc;
+            --fg-70: rgba(248, 250, 252, 0.7);
+            --fg-60: rgba(248, 250, 252, 0.6);
+            --fg-50: rgba(248, 250, 252, 0.5);
+            --fg-40: rgba(248, 250, 252, 0.4);
+            --fg-30: rgba(248, 250, 252, 0.3);
+            --fg-10: rgba(248, 250, 252, 0.1);
+            --fg-5: rgba(248, 250, 252, 0.05);
+            --accent: #3b82f6;
+            --violet: #8b5cf6;
+            --green: #22c55e;
+            --orange: #f97316;
+            --surface: #1e293b;
+            --max-w: 1280px;
+            --radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--fg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--fg-10);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: 0.05em;
+            color: var(--fg);
+        }
+
+        .logo span {
+            color: var(--fg-50);
+            margin: 0 6px;
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            color: var(--fg);
+            opacity: 1;
+            transition: opacity 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* Hero */
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 80px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6.5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 32px;
+        }
+
+        .hero h1 span {
+            color: var(--fg-70);
+        }
+
+        .hero p {
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            color: var(--fg-70);
+            max-width: 600px;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        /* Section titles */
+        .section-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--fg-50);
+            margin-bottom: 40px;
+        }
+
+        /* Projects */
+        .projects {
+            padding: 80px 0;
+        }
+
+        .project-card {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 120px;
+            align-items: center;
+        }
+
+        @media (min-width: 900px) {
+            .project-card {
+                grid-template-columns: 1.2fr 1fr;
+                gap: 64px;
+            }
+
+            .project-card:nth-child(even) {
+                direction: rtl;
+            }
+
+            .project-card:nth-child(even)>* {
+                direction: ltr;
+            }
+        }
+
+        .project-images {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+        }
+
+        .project-images img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-images img {
+            transform: scale(1.02);
+        }
+
+        .project-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .project-meta .date {
+            font-size: 0.85rem;
+            color: var(--fg-50);
+            font-weight: 500;
+        }
+
+        .project-meta h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+
+        .project-meta .subtitle {
+            font-size: 1.1rem;
+            color: var(--fg-60);
+            font-weight: 500;
+        }
+
+        .project-meta p {
+            font-size: 1.15rem;
+            color: var(--fg-70);
+            line-height: 1.6;
+            max-width: 480px;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+            font-weight: 600;
+            color: var(--accent);
+            transition: opacity 0.2s ease;
+        }
+
+        .project-link:hover {
+            opacity: 0.7;
+        }
+
+        .project-link svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Experience */
+        .experience {
+            padding: 80px 0;
+        }
+
+        .experience-list {
+            max-width: 720px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .experience-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px;
+            border-radius: var(--radius);
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .experience-item:hover {
+            background: var(--fg-5);
+            transform: translateX(4px);
+        }
+
+        .experience-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .experience-icon.violet {
+            background: var(--violet);
+        }
+
+        .experience-icon.green {
+            background: var(--green);
+        }
+
+        .experience-icon.orange {
+            background: var(--orange);
+        }
+
+        .experience-icon.light {
+            background: var(--fg);
+            color: var(--bg);
+        }
+
+        .experience-info {
+            flex: 1;
+        }
+
+        .experience-info .row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .experience-info .company {
+            font-weight: 700;
+            font-size: 1.15rem;
+        }
+
+        .experience-info .period {
+            color: var(--fg-40);
+            font-size: 0.95rem;
+        }
+
+        .experience-info .role {
+            color: var(--fg-60);
+            font-size: 0.95rem;
+        }
+
+        .experience-arrow {
+            width: 20px;
+            height: 20px;
+            color: var(--fg-30);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .experience-item:hover .experience-arrow {
+            opacity: 1;
+        }
+
+        /* Education, About, Contact */
+        .education,
+        .about,
+        .contact {
+            padding: 80px 0;
+        }
+
+        .content-narrow {
+            max-width: 720px;
+        }
+
+        .about p,
+        .education p,
+        .contact p {
+            font-size: 1.15rem;
+            color: var(--fg-70);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media (min-width: 700px) {
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-links a,
+        .contact-location {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+            color: var(--fg-80);
+            transition: color 0.2s ease;
+        }
+
+        .contact-links a:hover {
+            color: var(--fg);
+        }
+
+        .contact-links svg,
+        .contact-location svg {
+            width: 20px;
+            height: 20px;
+            color: var(--fg-60);
+        }
+
+        .contact-arrow {
+            width: 16px;
+            height: 16px;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .contact-links a:hover .contact-arrow {
+            opacity: 1;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 60px 0;
+            border-top: 1px solid var(--fg-10);
+            text-align: center;
+            color: var(--fg-50);
+            font-size: 0.9rem;
+        }
+
+        /* Reveal animation helper */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Utility */
+        .small-caps {
+            font-variant: small-caps;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav">
+        <div class="container nav-inner">
+            <a href="#" class="logo">MAYA CHEN</a>
+            <div class="nav-links">
+                <a href="mailto:hello@mayachen.design">EMAIL</a>
+                <a href="#resume">RÉSUMÉ</a>
+            </div>
         </div>
-    </div>
-</section>
+    </nav>
 
-<section class="about" id="about">
-    <div class="container">
-        <div class="content-narrow">
-            <h3 class="section-title reveal">About</h3>
-            <p class="reveal">I'm a product designer and creative director based in San Francisco. I believe in design
-                as a tool for clarity — simplifying complexity, building trust, and making technology feel human.</p>
-            <p class="reveal">Over the past decade, I've worked with startups and scale-ups to define product vision,
-                ship design systems, and lead teams through ambiguity. My work sits at the intersection of systems
-                thinking and craft.</p>
+    <header class="hero">
+        <div class="container">
+            <h1 class="reveal">Product Design<br /><span>&</span> Creative Direction</h1>
+            <p class="reveal">Crafting products with clarity and purpose for over a decade. Building digital experiences
+                that millions use every day.</p>
         </div>
-    </div>
-</section>
+    </header>
 
-<section class="contact" id="contact">
-    <div class="container">
-        <div class="content-narrow">
-            <h3 class="section-title reveal">Contact</h3>
-            <div class="contact-grid">
-                <div class="contact-links reveal">
-                    <a href="mailto:hello@mayachen.design">
+    <section class="projects" id="projects">
+        <div class="container">
+            <h3 class="section-title reveal">Featured Projects</h3>
+
+            <article class="project-card reveal">
+                <div class="project-images">
+                    <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=800&auto=format&fit=crop"
+                        alt="FORM project preview" />
+                </div>
+                <div class="project-meta">
+                    <p class="date">January 2018</p>
+                    <h2>FORM</h2>
+                    <p class="subtitle">Print, Exhibit</p>
+                    <p>FORM was created in collaboration with fellow graphic design students. An exploration in
+                        zine-making, editorial design, and collaborative creative processes.</p>
+                    <a class="project-link" href="#form">View Project
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                            <polyline points="22,6 12,13 2,6" />
-                        </svg>
-                        hello@mayachen.design
-                    </a>
-                    <a href="https://linkedin.com/in/mayachen" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                            <rect x="2" y="9" width="4" height="12" />
-                            <circle cx="4" cy="4" r="2" />
-                        </svg>
-                        LinkedIn
-                        <svg class="contact-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M7 17L17 7M17 7H7M17 7V17" />
-                        </svg>
-                    </a>
-                    <a href="https://dribbble.com/mayachen" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72" />
-                            <path d="M2.36 12.36c8.25-1.35 12.38-1.35 19.28.00" style="display:none" />
-                            <path d="M3.2 9.5c8.83 1.55 13.28 1.55 17.6.00" style="display:none" />
-                            <path d="M12.6 2.04c-1.55 6.6-1.55 10.34 0 16.02" style="display:none" />
-                        </svg>
-                        Dribbble
-                        <svg class="contact-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M7 17L17 7M17 7H7M17 7V17" />
                         </svg>
                     </a>
                 </div>
-                <div class="contact-location reveal">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                        <circle cx="12" cy="10" r="3" />
+            </article>
+            <article class="project-card reveal">
+                <div class="project-images">
+                    <img src="https://images.unsplash.com/photo-1558655146-d09347e0b7a9?w=800&auto=format&fit=crop"
+                        alt="Verve project preview" />
+                </div>
+                <div class="project-meta">
+                    <p class="date">2024–Present</p>
+                    <h2>Verve</h2>
+                    <p class="subtitle">Design Director</p>
+                    <p>Reimagining creative collaboration. As part of Verve's founding design team, I helped craft a
+                        next-generation collaborative design platform from the ground up.</p>
+                    <a class="project-link" href="#verve">View Project
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                    </a>
+                </div>
+            </article>
+
+            <article class="project-card reveal">
+                <div class="project-images">
+                    <img src="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=800&auto=format&fit=crop"
+                        alt="Spotify project preview" />
+                </div>
+                <div class="project-meta">
+                    <p class="date">2020–2024</p>
+                    <h2>Spotify</h2>
+                    <p class="subtitle">Staff Designer</p>
+                    <p>Leading design initiatives across the music streaming experience. Focused on personalization,
+                        discovery, and creating moments of delight for millions.</p>
+                    <a class="project-link" href="#spotify">View Project
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                    </a>
+                </div>
+            </article>
+
+            <article class="project-card reveal">
+                <div class="project-images">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&auto=format&fit=crop"
+                        alt="Figma project preview" />
+                </div>
+                <div class="project-meta">
+                    <p class="date">2016–2020</p>
+                    <h2>Figma</h2>
+                    <p class="subtitle">Senior Designer</p>
+                    <p>Helped shape the future of design collaboration. Worked on core product features, design systems,
+                        and developer experience that empowered designers globally.</p>
+                    <a class="project-link" href="#figma">View Project
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="experience" id="experience">
+        <div class="container">
+            <h3 class="section-title reveal">Experience</h3>
+            <div class="experience-list">
+                <a href="#verve" class="experience-item reveal">
+                    <div class="experience-icon violet">✦</div>
+                    <div class="experience-info">
+                        <div class="row">
+                            <span class="company">Verve</span>
+                            <span class="period">· 2024–Present</span>
+                        </div>
+                        <p class="role">Design Director</p>
+                    </div>
+                    <svg class="experience-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" />
                     </svg>
-                    <div>
-                        <span>San Francisco, USA 🇺🇸</span>
-                        <p style="color:var(--fg-50); font-size:0.95rem; margin-top:4px;" id="local-time"></p>
+                </a>
+                <a href="#spotify" class="experience-item reveal">
+                    <div class="experience-icon green">♪</div>
+                    <div class="experience-info">
+                        <div class="row">
+                            <span class="company">Spotify</span>
+                            <span class="period">· 2020–2024</span>
+                        </div>
+                        <p class="role">Staff Designer</p>
+                    </div>
+                    <svg class="experience-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                </a>
+                <a href="#figma" class="experience-item reveal">
+                    <div class="experience-icon orange">◈</div>
+                    <div class="experience-info">
+                        <div class="row">
+                            <span class="company">Figma</span>
+                            <span class="period">· 2016–2020</span>
+                        </div>
+                        <p class="role">Senior Designer</p>
+                    </div>
+                    <svg class="experience-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                </a>
+                <a href="#notion" class="experience-item reveal">
+                    <div class="experience-icon light">▣</div>
+                    <div class="experience-info">
+                        <div class="row">
+                            <span class="company">Notion</span>
+
+                            <span class="period">· 2012–2016</span>
+                        </div>
+                        <p class="role">Product Designer</p>
+                    </div>
+                    <svg class="experience-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="education" id="education">
+        <div class="container">
+            <div class="content-narrow">
+                <h3 class="section-title reveal">Education</h3>
+                <p class="reveal">Rhode Island School of Design<br />BFA in Graphic Design, 2012</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="content-narrow">
+                <h3 class="section-title reveal">About</h3>
+                <p class="reveal">I'm a product designer and creative director based in San Francisco. I believe in
+                    design
+                    as a tool for clarity — simplifying complexity, building trust, and making technology feel human.
+                </p>
+                <p class="reveal">Over the past decade, I've worked with startups and scale-ups to define product
+                    vision,
+                    ship design systems, and lead teams through ambiguity. My work sits at the intersection of systems
+                    thinking and craft.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="content-narrow">
+                <h3 class="section-title reveal">Contact</h3>
+                <div class="contact-grid">
+                    <div class="contact-links reveal">
+                        <a href="mailto:hello@mayachen.design">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                            hello@mayachen.design
+                        </a>
+                        <a href="https://linkedin.com/in/mayachen" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect x="2" y="9" width="4" height="12" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                            LinkedIn
+                            <svg class="contact-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </a>
+                        <a href="https://dribbble.com/mayachen" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72" />
+                                <path d="M2.36 12.36c8.25-1.35 12.38-1.35 19.28.00" style="display:none" />
+                                <path d="M3.2 9.5c8.83 1.55 13.28 1.55 17.6.00" style="display:none" />
+                                <path d="M12.6 2.04c-1.55 6.6-1.55 10.34 0 16.02" style="display:none" />
+                            </svg>
+                            Dribbble
+                            <svg class="contact-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="contact-location reveal">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        <div>
+                            <span>San Francisco, USA 🇺🇸</span>
+                            <p style="color:var(--fg-50); font-size:0.95rem; margin-top:4px;" id="local-time"></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<footer class="footer">
-    <div class="container">
-        <p>© <span id="year"></span> Maya Chen. All rights reserved.</p>
-    </div>
-</footer>
+    <footer class="footer">
+        <div class="container">
+            <p>© <span id="year"></span> Maya Chen. All rights reserved.</p>
+        </div>
+    </footer>
 
-<script>
-    // Intersection Observer reveal animation
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.1 });
+    <script>
+        // Intersection Observer reveal animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
 
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
-    // Local time in San Francisco
-    function updateTime() {
-        const timeEl = document.getElementById('local-time');
-        if (!timeEl) return;
-        const time = new Date().toLocaleTimeString('en-US', {
-            timeZone: 'America/Los_Angeles',
-            hour: 'numeric',
-            minute: '2-digit',
-            hour12: true,
-        });
-        timeEl.textContent = time + ' local time';
-    }
-    updateTime();
-    setInterval(updateTime, 60000);
+        // Local time in San Francisco
+        function updateTime() {
+            const timeEl = document.getElementById('local-time');
+            if (!timeEl) return;
+            const time = new Date().toLocaleTimeString('en-US', {
+                timeZone: 'America/Los_Angeles',
+                hour: 'numeric',
+                minute: '2-digit',
+                hour12: true,
+            });
+            timeEl.textContent = time + ' local time';
+        }
+        updateTime();
+        setInterval(updateTime, 60000);
 
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+        // Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 
 </body>
 
