@@ -10,10 +10,8 @@
             --primary-color: #111;
             --secondary-color: #666;
             --accent-color: #007AFF;
-            /* Subtle medical blue */
             --bg-color: #ffffff;
             --section-gap: 50px;
-            /* Reduced gap to bring sections closer */
         }
 
         body {
@@ -46,7 +44,7 @@
             color: var(--primary-color);
         }
 
-        /* -------- Header Area (Updated Layout) -------- */
+        /* -------- Header Area -------- */
         .project-header {
             max-width: 900px;
             margin: 0 auto var(--section-gap) auto;
@@ -119,114 +117,13 @@
             margin: 0;
         }
 
-        /* -------- Compact Sleek Gallery -------- */
-        .case-study-visuals {
-            max-width: 850px;
-            /* Narrowed container to keep everything more compact */
-            margin: 0 auto;
-            width: 90%;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            /* Reduced gap between rows so more content fits vertically */
-            padding-bottom: 60px;
-        }
-
-        .visual-item {
-            display: grid;
-            grid-template-columns: 280px 1fr;
-            /* Fixed compact image width + flexible text column */
-            gap: 24px;
-            /* Clean, close spacing between image and text */
-            align-items: center;
-            /* Vertically aligns text with the center of the image */
-        }
-
-        /* Alternate every other image to the right */
-        .visual-item:nth-child(even) {
-            grid-template-columns: 1fr 280px;
-        }
-
-        .visual-item:nth-child(even) .visual-img-wrapper {
-            order: 2;
-        }
-
-        .visual-img-wrapper {
-            background: #f9f9f9;
-            padding: 12px;
-            border-radius: 6px;
-            overflow: hidden;
-            box-sizing: border-box;
-            width: 100%;
-            /* Fills the 280px grid column cleanly */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .visual-img-wrapper img {
-            width: 100%;
-            height: 180px;
-            /* Standardized height to prevent oversized images */
-            object-fit: cover;
-            /* Ensures crisp cropping without squishing aspect ratios */
-            display: block;
-            border-radius: 2px;
-            transition: transform 0.5s ease;
-        }
-
-        .visual-img-wrapper:hover img {
-            transform: scale(1.03);
-        }
-
-        .visual-info h3 {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--accent-color);
-            margin: 0 0 6px 0;
-        }
-
-        .visual-info p {
-            font-size: 15px;
-            color: var(--secondary-color);
-            margin: 0;
-            line-height: 1.5;
-        }
-
-        /* -------- Responsive -------- */
-        @media (max-width: 750px) {
-            .project-header {
-                flex-direction: column-reverse;
-            }
-
-            .header-hero-img {
-                width: 100%;
-            }
-
-            .header-hero-img img {
-                height: 200px;
-            }
-
-            .visual-item,
-            .visual-item:nth-child(even) {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .visual-item:nth-child(even) .visual-img-wrapper {
-                order: 0;
-            }
-
-            .visual-img-wrapper img {
-                height: 220px;
-            }
-        }
-
         /* -------- Photo Grid -------- */
         .photo-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 90%;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 20px;
             padding-bottom: 80px;
         }
@@ -238,7 +135,6 @@
             overflow: hidden;
             background: #f9f9f9;
             aspect-ratio: 4 / 3;
-            /* Keeps all gallery tiles uniform in shape */
             cursor: pointer;
         }
 
@@ -254,7 +150,6 @@
         .photo-overlay {
             position: absolute;
             inset: 0;
-            /* Stretches overlay across the entire image */
             background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0.1) 100%);
             color: #fff;
             display: flex;
@@ -262,7 +157,6 @@
             justify-content: flex-end;
             padding: 20px;
             opacity: 0;
-            /* Hidden by default */
             transition: opacity 0.3s ease;
         }
 
@@ -271,13 +165,12 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: #66b2ff;
-            /* Soft highlight blue for readability on dark background */
             margin: 0 0 4px 0;
             transform: translateY(10px);
             transition: transform 0.3s ease;
         }
 
-        .photo-overlay p2 {
+        .photo-overlay p {
             font-size: 14px;
             line-height: 1.4;
             margin: 0;
@@ -296,11 +189,25 @@
         }
 
         .photo-card:hover .photo-overlay h4,
-        .photo-card:hover .photo-overlay p2 {
+        .photo-card:hover .photo-overlay p {
             transform: translateY(0);
         }
 
-        /* Mobile touch fallback: subtle caption bar if no mouse is present */
+        /* -------- Responsive -------- */
+        @media (max-width: 750px) {
+            .project-header {
+                flex-direction: column-reverse;
+            }
+
+            .header-hero-img {
+                width: 100%;
+            }
+
+            .header-hero-img img {
+                height: 200px;
+            }
+        }
+
         @media (hover: none) {
             .photo-overlay {
                 opacity: 1;
@@ -308,12 +215,11 @@
             }
 
             .photo-overlay h4,
-            .photo-overlay p2 {
+            .photo-overlay p {
                 transform: translateY(0);
             }
         }
     </style>
-
 </head>
 
 <body>
@@ -341,9 +247,9 @@
             </div>
         </div>
 
-        <!-- Top Right Product Image -->
+        <!-- Top Right Hero Image -->
         <div class="header-hero-img">
-            <img src="IMG_2949.JPG" alt="Nasogastric Tube Securement Final Product">
+            <img src="IMG_2949.JPG" alt="Makerspace Feature">
         </div>
     </header>
 
@@ -359,34 +265,38 @@
                 workshops and mentoring moments I had during my time.
             </p>
         </section>
-        <div class="photo-card">
-            <img src="DSC_0529.jpg" alt="Mentor">
-            <div class="photo-overlay">
-                <h4>helping!!</h4>
-                <p2>is this gray??</p2>
+
+        <!-- Added the missing .photo-grid wrapper here -->
+        <section class="photo-grid">
+            <div class="photo-card">
+                <img src="DSC_0529.jpg" alt="Mentor">
+                <div class="photo-overlay">
+                    <h4>Mentoring</h4>
+                    <p>Workshop guidance and prototyping support.</p>
+                </div>
             </div>
-        </div>
-        <div class="photo-card">
-            <img src="DSC_2486.jpg" alt="Mentoring">
-            <div class="photo-overlay">
-                <h4>helping!!</h4>
-                <p2>is this gray??</p2>
+            <div class="photo-card">
+                <img src="DSC_2486.jpg" alt="Mentoring">
+                <div class="photo-overlay">
+                    <h4>Workshop</h4>
+                    <p>Hands-on fabrication training session.</p>
+                </div>
             </div>
-        </div>
-        <div class="photo-card">
-            <img src="DSC_2578.jpg" alt="Mentor2">
-            <div class="photo-overlay">
-                <h4>helping!!</h4>
-                <p2>is this gray??</p2>
+            <div class="photo-card">
+                <img src="DSC_2578.jpg" alt="Mentor2">
+                <div class="photo-overlay">
+                    <h4>Fabrication</h4>
+                    <p>Student project prototyping in the makerspace.</p>
+                </div>
             </div>
-        </div>
-        <div class="photo-card">
-            <img src="DSC_0529.jpg" alt="Mentor">
-            <div class="photo-overlay">
-                <h4>helping!!</h4>
-                <p2>is this gray??</p2>
+            <div class="photo-card">
+                <img src="DSC_0529.jpg" alt="Mentor">
+                <div class="photo-overlay">
+                    <h4>Design Review</h4>
+                    <p>Iterating on student physical designs.</p>
+                </div>
             </div>
-        </div>
+        </section>
     </main>
 
 </body>
