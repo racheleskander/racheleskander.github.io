@@ -222,7 +222,98 @@
                 height: 220px;
             }
         }
+
+        /* -------- Photo Grid -------- */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding-bottom: 80px;
+        }
+
+        /* -------- Individual Photo Card & Hover Effect -------- */
+        .photo-card {
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+            background: #f9f9f9;
+            aspect-ratio: 4 / 3;
+            /* Keeps all gallery tiles uniform in shape */
+            cursor: pointer;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        /* Dark gradient overlay that appears on hover */
+        .photo-overlay {
+            position: absolute;
+            inset: 0;
+            /* Stretches overlay across the entire image */
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0.1) 100%);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            opacity: 0;
+            /* Hidden by default */
+            transition: opacity 0.3s ease;
+        }
+
+        .photo-overlay h4 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #66b2ff;
+            /* Soft highlight blue for readability on dark background */
+            margin: 0 0 4px 0;
+            transform: translateY(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-overlay p2 {
+            font-size: 14px;
+            line-height: 1.4;
+            margin: 0;
+            color: #f0f0f0;
+            transform: translateY(10px);
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover States */
+        .photo-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .photo-card:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        .photo-card:hover .photo-overlay h4,
+        .photo-card:hover .photo-overlay p2 {
+            transform: translateY(0);
+        }
+
+        /* Mobile touch fallback: subtle caption bar if no mouse is present */
+        @media (hover: none) {
+            .photo-overlay {
+                opacity: 1;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%);
+            }
+
+            .photo-overlay h4,
+            .photo-overlay p2 {
+                transform: translateY(0);
+            }
+        }
     </style>
+
 </head>
 
 <body>
@@ -259,60 +350,23 @@
     <main>
         <section class="content-block">
             <p class="description">
-                My team was tasked with identifying a clinical unmet need through ethnographical research.
-                We focused on mitigating the untimely removal of nasogastric (NG) tubes in pediatric patients aged 1-6
-                years old.
-                This journey spanned from initial brainstorms to technical validation and FDA regulatory
-                pre-submissions.
+                As a mentor, I was able to teach/guide students for academic and personal projects using various
+                fabrication techniques and methods. I was especially fulfilled when I began my role as Program Manager,
+                planning and executing workshops, where students can apply their understanding of prototyping to learn
+                advanced techniques and participate in fun projects! Throughout my time as Program Manager, I developed
+                over 40 workshops and trainings to a full class of students and faculty interested in learning more
+                about fabrication! The images on this page are from various
+                workshops and mentoring moments I had during my time.
             </p>
         </section>
-
-        <section class="case-study-visuals">
-
-            <div class="visual-item">
-                <div class="visual-img-wrapper">
-                    <img src="IMG2" alt="Brainstorm Session">
-                </div>
-                <div class="visual-info">
-                    <h3>Conceptualization</h3>
-                    <p>Team sticky-note session focused on identifying high-impact unmet needs in pediatric care.</p>
-                </div>
+        <div class="photo-card">
+            <img src="DSC_0529.jpg" alt="Mentor">
+            <div class="photo-overlay">
+                <h4>helping!!</h4>
+                <p2>is this gray??</p2>
             </div>
+        </div>
 
-            <div class="visual-item">
-                <div class="visual-img-wrapper">
-                    <img src="Rev1" alt="Revision 1">
-                </div>
-                <div class="visual-info">
-                    <h3>Revision 01</h3>
-                    <p>Low-fidelity prototype exploring materials. Utilizing foamcore, felt, and elastic to test the
-                        initial headgear footprint.</p>
-                </div>
-            </div>
-
-            <div class="visual-item">
-                <div class="visual-img-wrapper">
-                    <img src="IMG_4137.jpeg" alt="Revision 2">
-                </div>
-                <div class="visual-info">
-                    <h3>Revision 02: Mechanism</h3>
-                    <p>A hinging clip made with PLA using Fused Filament Fabrication. Features a secure clasp and
-                        integrated sew-holes for headgear attachment.</p>
-                </div>
-            </div>
-
-            <div class="visual-item">
-                <div class="visual-img-wrapper">
-                    <img src="Rev 3 Clip Closed.JPG" alt="Revision 3">
-                </div>
-                <div class="visual-info">
-                    <h3>Final Iteration</h3>
-                    <p>Redesigned four-arm clip for improved securement. I led the manufacturing efforts, fabrication,
-                        and design review for this final iteration.</p>
-                </div>
-            </div>
-
-        </section>
     </main>
 
 </body>
