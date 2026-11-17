@@ -10,10 +10,8 @@
             --primary-color: #111;
             --secondary-color: #666;
             --accent-color: #007AFF;
-            /* Subtle medical blue */
             --bg-color: #ffffff;
             --section-gap: 50px;
-            /* Reduced gap to bring sections closer */
         }
 
         body {
@@ -46,7 +44,7 @@
             color: var(--primary-color);
         }
 
-        /* -------- Header Area (Updated Layout) -------- */
+        /* -------- Header Area -------- */
         .project-header {
             max-width: 900px;
             margin: 0 auto var(--section-gap) auto;
@@ -119,79 +117,80 @@
             margin: 0;
         }
 
-        /* -------- Compact Sleek Gallery -------- */
-        .case-study-visuals {
-            max-width: 850px;
-            /* Narrowed container to keep everything more compact */
+        /* -------- Photo Grid -------- */
+        .photo-grid {
+            max-width: 900px;
             margin: 0 auto;
             width: 90%;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            /* Reduced gap between rows so more content fits vertically */
-            padding-bottom: 60px;
-        }
-
-        .visual-item {
             display: grid;
-            grid-template-columns: 280px 1fr;
-            /* Fixed compact image width + flexible text column */
-            gap: 24px;
-            /* Clean, close spacing between image and text */
-            align-items: center;
-            /* Vertically aligns text with the center of the image */
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+            padding-bottom: 80px;
         }
 
-        /* Alternate every other image to the right */
-        .visual-item:nth-child(even) {
-            grid-template-columns: 1fr 280px;
-        }
-
-        .visual-item:nth-child(even) .visual-img-wrapper {
-            order: 2;
-        }
-
-        .visual-img-wrapper {
-            background: #f9f9f9;
-            padding: 12px;
+        /* -------- Individual Photo Card & Hover Effect -------- */
+        .photo-card {
+            position: relative;
             border-radius: 6px;
             overflow: hidden;
-            box-sizing: border-box;
-            width: 100%;
-            /* Fills the 280px grid column cleanly */
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: #f9f9f9;
+            aspect-ratio: 4 / 3;
+            cursor: pointer;
         }
 
-        .visual-img-wrapper img {
+        .photo-card img {
             width: 100%;
-            height: 180px;
-            /* Standardized height to prevent oversized images */
+            height: 100%;
             object-fit: cover;
-            /* Ensures crisp cropping without squishing aspect ratios */
             display: block;
-            border-radius: 2px;
             transition: transform 0.5s ease;
         }
 
-        .visual-img-wrapper:hover img {
-            transform: scale(1.03);
+        /* Dark gradient overlay that appears on hover */
+        .photo-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0.1) 100%);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .visual-info h3 {
+        .photo-overlay h4 {
             font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: var(--accent-color);
-            margin: 0 0 6px 0;
+            color: #66b2ff;
+            margin: 0 0 4px 0;
+            transform: translateY(10px);
+            transition: transform 0.3s ease;
         }
 
-        .visual-info p {
-            font-size: 15px;
-            color: var(--secondary-color);
+        .photo-overlay p {
+            font-size: 14px;
+            line-height: 1.4;
             margin: 0;
-            line-height: 1.5;
+            color: #f0f0f0;
+            transform: translateY(10px);
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover States */
+        .photo-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .photo-card:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        .photo-card:hover .photo-overlay h4,
+        .photo-card:hover .photo-overlay p {
+            transform: translateY(0);
         }
 
         /* -------- Responsive -------- */
@@ -207,19 +206,17 @@
             .header-hero-img img {
                 height: 200px;
             }
+        }
 
-            .visual-item,
-            .visual-item:nth-child(even) {
-                grid-template-columns: 1fr;
-                gap: 15px;
+        @media (hover: none) {
+            .photo-overlay {
+                opacity: 1;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%);
             }
 
-            .visual-item:nth-child(even) .visual-img-wrapper {
-                order: 0;
-            }
-
-            .visual-img-wrapper img {
-                height: 220px;
+            .photo-overlay h4,
+            .photo-overlay p {
+                transform: translateY(0);
             }
         }
     </style>
@@ -233,7 +230,7 @@
 
     <header class="project-header">
         <div class="header-content">
-            <h1>Medical Product Design</h1>
+            <h1>Makerspace</h1>
             <div class="project-meta">
                 <div class="meta-item">
                     <strong>Role</strong>
@@ -250,68 +247,108 @@
             </div>
         </div>
 
-        <!-- Top Right Product Image -->
+        <!-- Top Right Hero Image -->
         <div class="header-hero-img">
-            <img src="IMG_2949.JPG" alt="Nasogastric Tube Securement Final Product">
+            <img src="DSC_2532.jpg" alt="Makerspace Corner Pic">
         </div>
     </header>
 
     <main>
         <section class="content-block">
             <p class="description">
-                My team was tasked with identifying a clinical unmet need through ethnographical research.
-                We focused on mitigating the untimely removal of nasogastric (NG) tubes in pediatric patients aged 1-6
-                years old.
-                This journey spanned from initial brainstorms to technical validation and FDA regulatory
-                pre-submissions.
+                In Spring 2023, I participated and assisted in a medical product design class. Although enrolled as a
+                student, my role as Makerspace's Program Manager allowed me to act as a bridge between the teacher and
+                students. I taught and trained students on how to use all prototyping tools and machines needed for the
+                class. We were
+                guided to recreate a blood pressure monitor for the final project. I used machining mills, 3D ender
+                printers,
+                vacuum form molding, silicon molding, 3d finishing techniques, sewing machines, sketching techniques,
+                and AutoDesk Fusion. Hover over each image for more details!
             </p>
         </section>
 
-        <section class="case-study-visuals">
+        <!-- Added the missing .photo-grid wrapper here -->
+        <section class="photo-grid">
 
-            <div class="visual-item">
-                <div class="visual-img-wrapper">
-                    <img src="IMG2" alt="Brainstorm Session">
+            <div class="photo-card">
+                <img src="IMG_1257.jpeg" alt="oldmonitor">
+                <div class="photo-overlay">
+                    <h4>Taking apart a blood pressure monitor</h4>
+                    <p>Identifying the parts within the system</p>
                 </div>
-                <div class="visual-info">
-                    <h3>Conceptualization</h3>
-                    <p>Team sticky-note session focused on identifying high-impact unmet needs in pediatric care.</p>
+            </div>
+            <div class="photo-card">
+                <img src="IMG_1499.jpeg" alt="disassmbled">
+                <div class="photo-overlay">
+                    <h4>Blood Pressure Monitor</h4>
+                    <p>Component layout</p>
                 </div>
             </div>
 
-            <div class="visual-item">
-                <div class="visual-img-wrapper">
-                    <img src="Rev1" alt="Revision 1">
+            <div class="photo-card">
+                <img src="IMG_1507.jpeg" alt="BPSketch">
+                <div class="photo-overlay">
+                    <h4>Sketch</h4>
+                    <p>Practicing my sketching skills</p>
                 </div>
-                <div class="visual-info">
-                    <h3>Revision 01</h3>
-                    <p>Low-fidelity prototype exploring materials. Utilizing foamcore, felt, and elastic to test the
-                        initial headgear footprint.</p>
+            </div>
+            <div class="photo-card">
+                <img src="IMG_1781.jpeg" alt="CuffSketch">
+                <div class="photo-overlay">
+                    <h4>Sketch</h4>
+                    <p>Sketching the blood pressure cuff</p>
+                </div>
+            </div>
+            <div class="photo-card">
+                <img src="DSC_4253.jpg" alt="Mentor">
+                <div class="photo-overlay">
+                    <h4>Advanced Laser Cutting</h4>
+                    <p>Teaching an Advanced Laser Cutting Workshop</p>
                 </div>
             </div>
 
-            <div class="visual-item">
-                <div class="visual-img-wrapper">
-                    <img src="IMG_4137.jpeg" alt="Revision 2">
-                </div>
-                <div class="visual-info">
-                    <h3>Revision 02: Mechanism</h3>
-                    <p>A hinging clip made with PLA using Fused Filament Fabrication. Features a secure clasp and
-                        integrated sew-holes for headgear attachment.</p>
+            <div class="photo-card">
+                <img src="DSC_4250.jpg" alt="WaterBottle">
+                <div class="photo-overlay">
+                    <h4>Advanced Laser Cutting</h4>
+                    <p>Showed student how to laser engrave watter bottles</p>
                 </div>
             </div>
-
-            <div class="visual-item">
-                <div class="visual-img-wrapper">
-                    <img src="Rev 3 Clip Closed.JPG" alt="Revision 3">
-                </div>
-                <div class="visual-info">
-                    <h3>Final Iteration</h3>
-                    <p>Redesigned four-arm clip for improved securement. I led the manufacturing efforts, fabrication,
-                        and design review for this final iteration.</p>
+            <div class="photo-card">
+                <img src="DSC_5209.jpg" alt="VacuumForming">
+                <div class="photo-overlay">
+                    <h4>Vacuum Forming Workshop</h4>
+                    <p>Presented on Vacuum Forming methods and techniques</p>
                 </div>
             </div>
-
+            <div class="photo-card">
+                <img src="DSC_5217.jpg" alt="VacuumForming1">
+                <div class="photo-overlay">
+                    <h4>Vacuum Forming Workshop</h4>
+                    <p>Demonstrating how to use the Vacuum Former</p>
+                </div>
+            </div>
+            <div class="photo-card">
+                <img src="DSC_5247.jpg" alt="VacuumForming2">
+                <div class="photo-overlay">
+                    <h4>Vacuum Forming Workshop</h4>
+                    <p>Helping students use the Vacuum Formers</p>
+                </div>
+            </div>
+            <div class="photo-card">
+                <img src="DSC_0529.jpg" alt="cement1">
+                <div class="photo-overlay">
+                    <h4>Allginate/Cement Molding</h4>
+                    <p>Participated in an allginate molding session with fellow mentors!</p>
+                </div>
+            </div>
+            <div class="photo-card">
+                <img src="DSC_0569.jpg" alt="cement2">
+                <div class="photo-overlay">
+                    <h4>Allginate/Cement Molding</h4>
+                    <p>Used our hands as the models!</p>
+                </div>
+            </div>
         </section>
     </main>
 
